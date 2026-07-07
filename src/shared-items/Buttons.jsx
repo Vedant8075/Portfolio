@@ -1,3 +1,4 @@
+import React from "react";
 export const Buttons = ({
   className = "",
   size = "default",

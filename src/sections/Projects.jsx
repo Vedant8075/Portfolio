@@ -9,7 +9,7 @@ export const projects = [
       "StudySync is a modern educational platform designed to simplify and enhance the learning experience for students of all ages.",
     image: STUDYSYNC,
     tags: ["JS", "CSS", "HTML"],
-    link: "#",
+    link: "https://studysync8075.netlify.app/",
     github: "https://github.com/Vedant8075/STUDY-SYNC",
   },
 ];

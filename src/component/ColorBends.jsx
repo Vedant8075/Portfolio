@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import './ColorBends.css';
-
+import React from "react";
 const MAX_COLORS = 8;
 
 const frag = `

@@ -1,3 +1,4 @@
+import React from "react";
 import { Navbar } from "./components/Navbar";
 import { Skills } from "./sections/Skills";
 import { Hero } from "./sections/Hero";
@@ -6,6 +7,7 @@ import TargetCursor from "../component/TargetCursor";
 import Experience from "./sections/Experience";
 import {Projects} from "./sections/Projects";
 import { Footer } from "./components/Footer";
+import "./index.css"
 const App = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">

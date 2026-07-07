@@ -1,63 +1,42 @@
 import React, { useState } from "react";
 import LifeChronometer from "../component/LifeChronometer";
-import { Send,CheckCircle, AlertCircle, } from "lucide-react";
+import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { Buttons } from "../shared-items/Buttons";
-import emailjs from "@emailjs/browser";
+
 const ContactUs = () => {
   const [formData, setformData] = useState({
     name: "",
     email: "",
     message: "",
   });
- 
-  const[isLoading,setIsLoading]=useState(false)
-  const[submitStatus,setSubmitStatus]=useState({
-    type:null,
-    message:""
-  })
 
-  const handlesubmit = async (e) => {
-    e.preventDefault();
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({
+    type: null,
+    message: "",
+  });
 
-    setIsLoading(true);
-    setSubmitStatus({ type: null, message: "" });
+ const handlesubmit = async (formData) => {
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error(
-          "EmailJS configuration is missing. Please check your environment variables.",
-        );
-      }
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          time: new Date().toLocaleString(),
+      const response = await fetch("http://localhost:5000/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        publicKey,
-      );
+        body: JSON.stringify({
+          email: formData.email,
+          title: "New Portfolio Message",
+          body: formData.message,
+          name:formData.name
+        }),
+      });
 
-      setSubmitStatus({
-        type: "success",
-        message: "Message sent successfully! I'll get back to you soon.",
-      });
-      setformData({ name: "", email: "", message: "" });
+      const result = await response.json();
+      if (result.success) {
+        alert("Message Sent!");
+      }
     } catch (error) {
-      console.error("EmailJS error:", error);
-      setSubmitStatus({
-        type: "error",
-        message:
-          error.text || "Failed to send message. Please try again later.",
-      });
-    } finally {
-      setIsLoading(false);
+      console.error("Error sending message:", error);
     }
   };
 
