@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config()
-exports.mailSender = async (email, title, body, name) => {
+exports.mailSender = async (senderEmail, subject, message, senderName) => {
   try {
     let transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
@@ -11,12 +11,19 @@ exports.mailSender = async (email, title, body, name) => {
       secure: false,
     });
 
+    let htmlBody = `
+      <p><strong>Name:</strong> ${senderName}</p>
+      <p><strong>Email:</strong> ${senderEmail}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message.replace(/\n/g, '<br>')}</p>
+    `;
+
     let info = await transporter.sendMail({
-      from: `"VEDANT GUPTA/PORTFOLIO" <${process.env.MAIL_USER}>`, 
-      to: `${email}`,
-      subject: `${title}`, 
-      html: `${body}`, 
-      name:`${name}`
+      from: `"VEDANT GUPTA/PORTFOLIO" <${process.env.MAIL_USER}>`,
+      to: process.env.MAIL_USER,
+      replyTo: `${senderName} <${senderEmail}>`,
+      subject: subject,
+      html: htmlBody,
     });
     console.log(info.response);
     return info;

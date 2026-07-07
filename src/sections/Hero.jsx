@@ -1,6 +1,7 @@
 import React from "react";
 import {AnimatedBorderButton} from "../component/AnimatedBorderButton"
 import FloatingLines from "../component/FloatingLines";
+import resume from "../assets/vedants_resume.pdf"
 import TiltedCard from "../component/TiltedCard";
 import { Dot } from "lucide-react";
 import {
@@ -8,7 +9,7 @@ import {
   ChevronDown,
   Github,
   Linkedin,
-  Twitter,
+  Instagram,
   Download,
 } from "lucide-react";
 import { Buttons } from "../shared-items/Buttons";
@@ -62,10 +63,12 @@ export const Hero = () => {
                 Contact Me <ArrowRight className="w-5 h-5" />
               </Buttons>
             </a>
-            <AnimatedBorderButton className="cursor-target animate-fade-in animation-delay-300">
-              <Download className="w-5 h-5" />
-              Download CV
-            </AnimatedBorderButton>
+           <a href={resume} download="Vedant_Resume.pdf">
+  <AnimatedBorderButton>
+    <Download className="w-5 h-5" />
+    Download CV
+  </AnimatedBorderButton>
+</a>
           </div>
 
           <div className="flex space-x-6 animate-fade-in animation-delay-400   ">
@@ -74,8 +77,8 @@ export const Hero = () => {
             </div>
             {[
               { icon: Github, href: "https://github.com/Vedant8075" },
-              { icon: Linkedin, href: "#" },
-              { icon: Twitter, href: "#" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/vedant-gupta-18405031b/" },
+              { icon: Instagram, href: "https://www.instagram.com/vedant_8075" },
             ].map((social, idx) => (
               <a
                 key={idx}

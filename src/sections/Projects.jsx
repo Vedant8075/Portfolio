@@ -1,5 +1,7 @@
 import { ArrowUpRight, Github } from "lucide-react";
 import STUDYSYNC from "../assets/STUDYSYNC.png";
+import SMARTNOTES from "../assets/SMARTNOTES.png"
+import STUDYNOTION from "../assets/STUDYNOTION.png"
 import ElectricBorder from "../component/ElectricBorder";
 import { AnimatedBorderButton } from "../component/AnimatedBorderButton";
 export const projects = [
@@ -12,6 +14,24 @@ export const projects = [
     link: "https://studysync8075.netlify.app/",
     github: "https://github.com/Vedant8075/STUDY-SYNC",
   },
+  {
+  title: "StudyNotion",
+  description:
+    "StudyNotion is a full-stack MERN-based ed-tech platform where students can enroll in courses, instructors can create and manage content, and secure authentication and payments provide a seamless online learning experience.",
+  image: STUDYNOTION,
+  tags: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+  link: "",
+  github: "https://github.com/Vedant8075/ED-tech",
+},
+{
+  title: "SmartNotes",
+  description:
+    "SmartNotes is an AI-powered note-taking application that generates summaries from YouTube videos and PDFs, creates flashcards, enables document-based chat using RAG, and stores notes securely for future access.",
+  image: SMARTNOTES,
+  tags: ["React", "FastAPI", "MongoDB", "LangChain", "LLMs"],
+  link: "",
+  github: "https://github.com/Vedant8075/smartnotes",
+},
 ];
 
 export const Projects = () => {

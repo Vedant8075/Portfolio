@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LifeChronometer from "../component/LifeChronometer";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { Buttons } from "../shared-items/Buttons";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 const ContactUs = () => {
   const [formData, setformData] = useState({
     name: "",
@@ -16,18 +16,19 @@ const ContactUs = () => {
     message: "",
   });
 
- const handlesubmit = async (formData) => {
+ const handlesubmit = async (event) => {
+    event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/send-email", {
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: formData.email,
-          title: "New Portfolio Message",
-          body: formData.message,
-          name:formData.name
+          senderEmail: formData.email,
+          subject: "New Portfolio Message",
+          message: formData.message,
+          senderName: formData.name,
         }),
       });
 

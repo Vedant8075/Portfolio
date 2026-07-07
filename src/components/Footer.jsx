@@ -1,6 +1,6 @@
 import { section } from 'motion/react-client'
 import React from 'react'
-import {Instagram,Twitter,Github} from "lucide-react"
+import {Instagram,Github, Linkedin} from "lucide-react"
 export const Footer = () => {
   return (
     <section className="flex glass justify-evenly overflow-hidden container mt-20 bg-secondary min-w-full">
@@ -15,10 +15,10 @@ export const Footer = () => {
       </div>
       <div className="flex gap-2 items-center justify-center">
         {[
-          { icon: Github, href: "https://github.com/Vedant8075" },
-          { icon: Instagram, href: "#" },
-          { icon: Twitter, href: "#" },
-        ].map((social, idx) => (
+                      { icon: Github, href: "https://github.com/Vedant8075" },
+                      { icon: Linkedin, href: "https://www.linkedin.com/in/vedant-gupta-18405031b/" },
+                      { icon: Instagram, href: "https://www.instagram.com/vedant_8075" },
+                    ].map((social, idx) => (
           <a
             key={idx}
             href={social.href}
