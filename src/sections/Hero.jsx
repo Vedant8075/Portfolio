@@ -38,12 +38,12 @@ export const Hero = () => {
   color=""
     />; 
       </div>
-      <div className="flex  mt-25   w-full justify-evenly ">
-        <div className="flex flex-col  left  pb-10">
-          <span className="text-md flex border rounded px-2 text-primary w-fit my-8 animate-fade-in animation-delay-100 rounded-full animate-pulse">
+      <div className="flex flex-col md:flex-row mt-12 md:mt-20 lg:mt-24 w-full justify-evenly items-center gap-8 md:gap-10 lg:gap-16 px-4 sm:px-6 lg:px-10">
+        <div className="flex flex-col left pb-4 md:pb-10 w-full md:w-[47%] lg:w-auto max-w-2xl">
+          <span className="text-md flex border rounded-full px-3 py-1 text-primary w-fit my-6 md:my-8 animate-fade-in animation-delay-100 animate-pulse">
             Electrical Engineer • React Specialist
           </span>
-          <h1 className="text-bold text-5xl md:text-6xl lg:text-7xl my-5 leading-tight animate-fade-in animation-delay-100 ">
+          <h1 className="text-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl my-4 md:my-5 leading-tight animate-fade-in animation-delay-100 ">
             Crafting <span className="text-primary glow-text">digital</span>
             <br />
             experience with
@@ -52,12 +52,12 @@ export const Hero = () => {
               precision
             </span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200 ">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200 ">
             Hi, I'm Vedant Gupta— a thriving electrical engineer specializing in
             React, Next.js, and TypeScript. I build scalable, performant web
             applications that users love.
           </p>
-          <div className="my-8 flex justify-between flex-wrap w-fit gap-8 animate-fade-in animation-delay-300">
+          <div className="my-6 md:my-8 flex justify-start flex-wrap w-fit gap-4 sm:gap-6 md:gap-8 animate-fade-in animation-delay-300">
             <a href="#contactus">
               <Buttons className="cursor-target flex items-center gap-2">
                 Contact Me <ArrowRight className="w-5 h-5" />
@@ -71,7 +71,7 @@ export const Hero = () => {
 </a>
           </div>
 
-          <div className="flex space-x-6 animate-fade-in animation-delay-400   ">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 animate-fade-in animation-delay-400">
             <div className="text-muted-foreground text-sm flex items-center">
               Follow me:
             </div>
@@ -83,7 +83,7 @@ export const Hero = () => {
               <a
                 key={idx}
                 href={social.href}
-                className="p-2 cursor-target glass hover:bg-primary/10 hover:bg-primary/10 hover:text-primary"
+                className="p-2 cursor-target glass hover:bg-primary/10 hover:text-primary"
               >
                 <social.icon className="w-5 h-5" />
               </a>
@@ -91,24 +91,26 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className=" right relative hidden md:block top-40 flex items-center justify-center ">
-          <TiltedCard
-            imageSrc={profileImg}
-            altText="Vedant Gupta"
-            captionText="Vedant Gupta"
-            containerHeight="300px"
-            containerWidth="300px"
-            imageHeight="300px"
-            imageWidth="300px"
-            rotateAmplitude={16}
-            scaleOnHover={1.6}
-            showMobileWarning={false}
-            showTooltip
-            displayOverlayContent
-            overlayContent={
-              <p className="tilted-card-demo-text">Vedant Gupta</p>
-            }
-          />
+        <div className="relative flex items-center justify-center w-full md:w-[47%] mt-2 md:mt-0 md:justify-end md:pr-2 lg:pr-6">
+          <div className="-mt-2 md:mt-0 md:-translate-y-2">
+            <TiltedCard
+              imageSrc={profileImg}
+              altText="Vedant Gupta"
+              captionText="Vedant Gupta"
+              containerHeight="300px"
+              containerWidth="300px"
+              imageHeight="300px"
+              imageWidth="300px"
+              rotateAmplitude={16}
+              scaleOnHover={1.35}
+              showMobileWarning={false}
+              showTooltip
+              displayOverlayContent
+              overlayContent={
+                <p className="tilted-card-demo-text">Vedant Gupta</p>
+              }
+            />
+          </div>
         </div>
       </div>
     </section>

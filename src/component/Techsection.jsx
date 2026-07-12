@@ -16,14 +16,14 @@ const TechSection = ({ title, icons }) => {
       colors={["#c084fc", "#f472b6", "#38bdf8"]}
       className="mb-3"
     >
-      <div className="flex items-center justify-evenly gap-4 py-10 lg:mx-50 ">
+      <div className="flex flex-col items-center gap-4 px-4 py-8 sm:flex-row sm:items-center sm:justify-evenly sm:px-6 lg:mx-50 lg:py-10">
         {/* Title */}
-        <span className="text-lg font-serif text-primary-foreground hover:text-primary">
+        <span className="text-base sm:text-lg font-serif text-primary-foreground hover:text-primary text-center sm:text-left break-words">
           {title}
         </span>
 
         {/* Icons */}
-        <span className="flex flex-wrap items-center justify-around gap-5">
+        <span className="flex flex-wrap items-center justify-center gap-3 sm:justify-around sm:gap-5">
           {icons.map((Icon, index) => (
             <Icon
               key={index}

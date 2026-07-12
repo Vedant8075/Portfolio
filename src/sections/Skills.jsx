@@ -51,7 +51,7 @@ const techData = [
 
 export const Skills = () => {
   return (
-    <section id="skills" className="relative mt-10 mx-23 space-y-10">
+    <section id="skills" className="relative mt-10 mx-4 sm:mx-6 lg:mx-23 space-y-8 sm:space-y-10">
       {/* Background dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {[...Array(80)].map((_, i) => {
@@ -77,7 +77,7 @@ export const Skills = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-5xl text-primary-foreground hover:text-primary font-serif lg:mx-40">
+      <div className="relative z-10 text-3xl sm:text-4xl lg:text-5xl text-primary-foreground hover:text-primary font-serif lg:mx-40">
         Skills
       </div>
 
