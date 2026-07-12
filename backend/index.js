@@ -5,7 +5,16 @@ require("dotenv").config();
 
 const app = express();
 app.use(express.json()); 
-app.use(cors());       
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://vedantgupta.me",
+    "https://www.vedantgupta.me"
+];
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials:true
+}));     
 app.post("/api/send-email", async (req, res) => {
   const { senderEmail, subject, message, senderName } = req.body;
 
