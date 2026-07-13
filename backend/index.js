@@ -19,7 +19,7 @@ app.post("/api/send-email", async (req, res) => {
   const { senderEmail, subject, message, senderName } = req.body;
 
   try {
-    await mailSender(senderEmail, subject, message, senderName);
+    await mailSender(senderEmail, subject, message);
     res.status(200).json({ success: true, message: "Email sent successfully!" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
