@@ -1,10 +1,10 @@
 const nodemailer = require("nodemailer");
-require("dotenv").config()
-exports.mailSender = async (senderEmail, subject, message, senderName) => {
+
+const mailSender = async (email, title, body) => {
   try {
     let transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
-      port:process.env,
+      port:2525,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
@@ -12,19 +12,11 @@ exports.mailSender = async (senderEmail, subject, message, senderName) => {
       secure: false,
     });
 
-    let htmlBody = `
-      <p><strong>Name:</strong> ${senderName}</p>
-      <p><strong>Email:</strong> ${senderEmail}</p>
-      <p><strong>Message:</strong></p>
-      <p>${message.replace(/\n/g, '<br>')}</p>
-    `;
-
     let info = await transporter.sendMail({
-      from: `"VEDANT GUPTA/PORTFOLIO" <${process.env.MAIL_USER}>`,
-      to: process.env.MAIL_USER,
-      replyTo: `${senderName} <${senderEmail}>`,
-      subject: subject,
-      html: htmlBody,
+      from: `"Portlio" <vedantg663@gmail.com>`, 
+      to: `${email}`, // list of receivers
+      subject: `${title}`, // Subject line
+      html: `${body}`, // html body
     });
     console.log(info.response);
     return info;
@@ -34,3 +26,4 @@ exports.mailSender = async (senderEmail, subject, message, senderName) => {
   }
 };
 
+module.exports = mailSender;
