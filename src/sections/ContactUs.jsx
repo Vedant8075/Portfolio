@@ -3,6 +3,7 @@ import LifeChronometer from "../component/LifeChronometer";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { Buttons } from "../shared-items/Buttons";
 const apiUrl = import.meta.env.VITE_API_URL;
+console.log(apiUrl)
 const ContactUs = () => {
   const [formData, setformData] = useState({
     name: "",
